@@ -1,21 +1,14 @@
-void mergeSort(int *a, int l, int r) {
-    if (l < r) {
-        int mid = (r + l) / 2;
-        mergeSort(a, l, mid);
-        mergeSort(a, mid + 1, r);
-
-        merge(a, l, r, mid);
-    }
-}
+#ifndef MergeSort
+#define MergeSort
+#endif
 
 void merge(int *a, int l, int r, int mid) {
-    int len = r - l + 1;
-    int *sorted = new int[len];
+    int *sorted = new int[r - l + 1];
 
     int n = l;
     int m = mid + 1;
     int i = 0;
-    while (n < mid && m < r) {
+    while (n <= mid && m <= r) {
         if (a[n] < a[m]) {
             sorted[i] = a[n];
             n++;
@@ -26,14 +19,24 @@ void merge(int *a, int l, int r, int mid) {
         i++;
     }
     
-    for (; n < mid; i++, n++) {
+    for (; n <= mid; i++, n++) {
         sorted[i] = a[n];
     }
-    for (; m < r; i++, m++) {
+    for (; m <= r; i++, m++) {
         sorted[i] = a[m];
     }
 
     for (i = l; i <= r; i++) {
         a[i] = sorted[i - l];
+    }
+}
+
+void mergeSort(int *a, int l, int r) {
+    if (l < r) {
+        int mid = (r + l) / 2;
+        mergeSort(a, l, mid);
+        mergeSort(a, mid + 1, r);
+
+        merge(a, l, r, mid);
     }
 }
