@@ -1,9 +1,15 @@
+#ifndef QuickSort
+#define QuickSort
+#endif
+
 void swap (int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
+// this partition method always uses a[r] as pivot
+// can use a random index between l and r (inclusive) as pivot to avoid wrost case
 int partition (int *a, int l, int r) {
     int pivot = a[r];
     int smallerIdx = l;
