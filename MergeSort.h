@@ -29,6 +29,8 @@ void merge(int *a, int l, int r, int mid) {
     for (i = l; i <= r; i++) {
         a[i] = sorted[i - l];
     }
+
+    delete[] sorted;
 }
 
 void mergeSort(int *a, int l, int r) {
