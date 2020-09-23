@@ -13,9 +13,11 @@ void maxHeapify(int *a, int root, int size) {
     int l = root * 2 + 1;
     int r = l + 1;
 
+    // If left child is larger than root 
     if (l < size && a[l] > a[largest]) {
         largest = l;
     }
+    // If right child is larger than largest so far
     if (r < size && a[r] > a[largest]) {
         largest = r;
     }

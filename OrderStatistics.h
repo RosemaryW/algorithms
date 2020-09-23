@@ -10,11 +10,12 @@ int orderStat (int *a , int k, int l, int r) {
     if (k > 0 && k <= r - l + 1) {
         int pivotIdx = partition(a, l, r);
         if (k == pivotIdx - l + 1) {
-            return k + l - 1;
+            return a[k + l - 1];
         } else if (k < pivotIdx - l + 1) {
             return orderStat(a, k, l, pivotIdx - 1);
         } else {
-            return orderStat(a, k + l - pivotIdx - 1, pivotIdx + 1, r);
+            return orderStat(a, k - (pivotIdx - l + 1), pivotIdx + 1, r);
+            
         }
     }
 
