@@ -1,3 +1,6 @@
 *.bin
 *.ipch
 test
+*.vscode
+*.DS_Store
+*.o
